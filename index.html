@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://i.scdn.co/image/ab67616d0000b2739a482180e6a306229bff49dc">
+    <title>All Killer, No Filler - Dostream</title>
+    <style>
+        head {
+                align-items: center; 
+                text-align: center;
+                }
+        body {
+            font-family: Arial, sans-serif;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(106, 95, 255) 82%, rgb(0, 0, 0) 100%);  ;
+            padding: 20px;
+        }
+        #player {
+            margin-top: 20px;
+        }
+        #playlist {
+            list-style-type: none;
+            padding: 0;
+            color: beige;
+        }
+        #playlist li {
+            cursor: pointer;
+            padding: 5px;
+            background-color: rgb(51, 49, 49);
+            margin: 5px 0;
+            border-radius: 5px;
+            
+        }
+        #playlist li:hover {
+            background-color: blue;
+        }
+        h1 {color: beige;}
+
+        p {color: beige;}
+    </style>
+    <img src="https://i.scdn.co/image/ab67616d0000b2739a482180e6a306229bff49dc" width="250">
+    <h1>All Killer, No Filler</h1>
+    <p>Sum 41 first studio album <br>
+        📅 Date: 2001-08-09 <br>
+        🎧 Total tracks: 13</p>
+</head>
+<body>
+
+    <audio id="audioPlayer" controls>
+        <source id="audioSource" src="" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <ul id="playlist">
+        <li data-src="Sum 41 - Introduction To Destruction.mp3">Introduction To Destruction</li>
+        <li data-src="Sum 41 - Nothing On My Back.mp3">Nothing On My Back</li>
+        <li data-src="Sum 41 - Never Wake Up.mp3">Never Wake Up</li>
+        <li data-src="Sum 41 - Fat Lip.mp3">Fat Lip</li>
+        <li data-src="Sum 41 - Rhythms.mp3">Rhythms</li>
+        <li data-src="Sum 41 - Motivation.mp3">Motivation</li>
+        <li data-src="Sum 41 - In Too Deep.mp3">In Too Deep</li>
+        <li data-src="Sum 41 - Summer.mp3">Summer</li>
+        <li data-src="Sum 41 - Handle This.mp3">Handle This</li>
+        <li data-src="Sum 41 - Crazy Amanda Bunkface.mp3">Crazy Amanda Bunkface</li>
+        <li data-src="Sum 41 - All She s Got.mp3">All She s Got</li>
+        <li data-src="Sum 41 - Heart Attack.mp3">Heart Attack</li>
+        <li data-src="Sum 41 - Pain For Pleasure.mp3">Pain For Pleasure</li>
+
+        <p>Also, you can Enjoy more Sum 41 Albums like:<br>
+
+    </ul>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioSource = document.getElementById('audioSource');
+        const playlistItems = document.querySelectorAll('#playlist li');
+
+        playlistItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const src = item.getAttribute('data-src');
+                audioSource.src = src;
+                audioPlayer.load();
+                audioPlayer.play();
+            });
+        });
+    </script>
+</body>
+</html>
